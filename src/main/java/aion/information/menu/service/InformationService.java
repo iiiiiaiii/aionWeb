@@ -1,7 +1,7 @@
 package aion.information.menu.service;
 
-import aion.information.menu.controller.form.Form;
-import aion.information.menu.entity.Information;
+import aion.information.menu.controller.form.InformationForm;
+import aion.information.menu.entity.information.Information;
 import aion.information.menu.repository.InformationRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @RequiredArgsConstructor
 @Service
+@Transactional(readOnly = true)
 public class InformationService {
     private final InformationRepository informationRepository;
 
@@ -23,8 +24,14 @@ public class InformationService {
     }
 
     @Transactional
-    public void updatePost(Information information, Form form) {
-        information.updatePost(form);
+    public void update(Information information, InformationForm informationForm) {
+        String name = information.getName();
+        String content = information.getContent();
+        informationRepository.setInfo(information.getId(),name,content);
+    }
+
+    public void research() {
+
     }
 
 }

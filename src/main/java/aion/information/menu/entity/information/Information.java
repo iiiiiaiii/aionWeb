@@ -1,10 +1,8 @@
-package aion.information.menu.entity;
+package aion.information.menu.entity.information;
 
-import aion.information.menu.controller.form.Form;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import aion.information.menu.controller.form.InformationForm;
+import aion.information.menu.entity.BaseEntityPlus;
+import jakarta.persistence.*;
 import lombok.Getter;
 
 @Entity
@@ -23,8 +21,8 @@ public class Information extends BaseEntityPlus {
         this.content = content;
     }
 
-    public void updatePost(Form form) {
-        name = form.name;
-        content = form.content;
+    public void setInfo(InformationForm informationForm) {
+        this.name = informationForm.getName();
+        this.content = informationForm.getContext();
     }
 }

@@ -5,6 +5,7 @@ import aion.information.menu.controller.form.ArmorForm;
 import aion.information.menu.controller.form.WeaponForm;
 import aion.information.menu.entity.Job;
 import aion.information.menu.entity.Value;
+import aion.information.menu.entity.WeaponKind;
 import aion.information.menu.entity.item.Item;
 import aion.information.menu.entity.item.Weapon;
 import aion.information.menu.repository.WeaponRepository;
@@ -47,8 +48,9 @@ public class WeaponService {
         int magicAccuracy = weaponForm.getMagicAccuracy();
         int magicCritical = weaponForm.getMagicCritical();
         String etc = weaponForm.getEtc();
+        WeaponKind weaponKind = weaponForm.getWeaponKind();
         Value value = weaponForm.getValue();
         List<Job> jobList = weaponForm.getJobList();
-        weaponRepository.updateWeapon(id, name, level, attack, accuracy, weaponArmor, weaponSpeed, critical, magicAttack, magicAccuracy, magicCritical, etc, value, jobList);
+        weaponRepository.updateWeapon(id, name, level, attack, accuracy, weaponArmor, weaponSpeed, critical, magicAttack, magicAccuracy, magicCritical, etc,value,weaponKind, jobList);
     }
 }

@@ -1,11 +1,14 @@
 package aion.information.menu.service;
 
 import aion.information.menu.controller.form.InformationForm;
+import aion.information.menu.dto.InformationDto;
 import aion.information.menu.entity.information.Information;
 import aion.information.menu.repository.InformationRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @RequiredArgsConstructor
 @Service
@@ -30,6 +33,13 @@ public class InformationService {
         informationRepository.updateInfo(information.getId(),name,content);
     }
 
+    public List<Information> findAll() {
+        return informationRepository.findAll();
+    }
+
+    public List<InformationDto> findAllByDto() {
+        return informationRepository.findAllByDto();
+    }
     public void research() {
 
     }

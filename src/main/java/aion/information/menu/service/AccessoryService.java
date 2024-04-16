@@ -2,6 +2,8 @@ package aion.information.menu.service;
 
 import aion.information.menu.controller.form.AccessoryForm;
 import aion.information.menu.controller.form.ArmorForm;
+import aion.information.menu.dto.AccessoryDto;
+import aion.information.menu.entity.AccessoryKind;
 import aion.information.menu.entity.Job;
 import aion.information.menu.entity.Value;
 import aion.information.menu.entity.item.Accessory;
@@ -38,9 +40,17 @@ public class AccessoryService {
     public void updateAccessory(Long id, AccessoryForm accessoryForm) {
         String name = accessoryForm.getName();
         int level = accessoryForm.getLevel();
+        Value value = accessoryForm.getValue();
         int magicResist = accessoryForm.getMagicResist();
+        AccessoryKind accessoryKind = accessoryForm.getAccessoryKind();
+
         String etc = accessoryForm.getEtc();
 
-        accessoryRepository.updateAccessory(id, name, level, magicResist, etc);
+        accessoryRepository.updateAccessory(id, name, level, value,magicResist,accessoryKind ,etc);
+    }
+
+
+    public List<AccessoryDto> findAllByDto() {
+        return accessoryRepository.findAllByDto();
     }
 }

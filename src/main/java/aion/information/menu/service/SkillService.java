@@ -1,12 +1,15 @@
 package aion.information.menu.service;
 
 import aion.information.menu.controller.form.SkillForm;
+import aion.information.menu.dto.SkillDto;
 import aion.information.menu.entity.Job;
 import aion.information.menu.entity.skill.Skill;
 import aion.information.menu.repository.SkillRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -38,7 +41,10 @@ public class SkillService {
         String content = skillForm.getContext();
         Job job = skillForm.getJob();
 
-        // 업데이트 쿼리를 호출합니다.
         skillRepository.updateSkill(id, name, level, coolTime, content, job);
+    }
+
+    public List<SkillDto> findAllByDto() {
+        return skillRepository.findAllByDto();
     }
 }

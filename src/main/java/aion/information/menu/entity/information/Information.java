@@ -20,9 +20,4 @@ public class Information extends BaseEntityPlus {
         this.name = name;
         this.content = content;
     }
-
-    public void setInfo(InformationForm informationForm) {
-        this.name = informationForm.getName();
-        this.content = informationForm.getContext();
-    }
 }

@@ -1,6 +1,8 @@
 package aion.information.menu.service;
 
 import aion.information.menu.controller.form.ArmorForm;
+import aion.information.menu.dto.ArmorDto;
+import aion.information.menu.entity.ArmorKind;
 import aion.information.menu.entity.Job;
 import aion.information.menu.entity.Value;
 import aion.information.menu.entity.item.Accessory;
@@ -42,8 +44,13 @@ public class ArmorService {
         int avoid = armorForm.getAvoid();
         String etc = armorForm.getEtc();
         Value value = armorForm.getValue();
+        ArmorKind armorKind = armorForm.getArmorKind();
         List<Job> jobList = armorForm.getJobList();
-        armorRepository.updateArmor(id, name, level, defense, magicResist, avoid, etc, value, jobList);
+        armorRepository.updateArmor(id, name, level, defense, magicResist, avoid, etc, value, armorKind,jobList);
+    }
+
+    public List<ArmorDto> findAllByDto() {
+        return armorRepository.findAllByDto();
     }
 
 }

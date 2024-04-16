@@ -2,6 +2,7 @@ package aion.information.menu.entity.item;
 
 import aion.information.menu.entity.Job;
 import aion.information.menu.entity.Value;
+import aion.information.menu.entity.WeaponKind;
 import aion.information.menu.entity.item.Item;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -25,18 +26,16 @@ public class Weapon extends Item {
     private int weaponArmor;
     private float weaponSpeed;
     private int critical;
-
     private int magicAttack;
     private int magicAccuracy;
-
     private int magicCritical;
-
     private String etc;
 
-    private Value value;
+    private WeaponKind weaponKind;
 
-    public Weapon(String name, int level, Value value, List<Job> jobList, String attack, int accuracy, int weaponArmor, float weaponSpeed, int critical, int magicAttack, int magicAccuracy, int magicCritical, String etc, Value value1) {
+    public Weapon(String name, int level, Value value, List<Job> jobList, Long id, String attack, int accuracy, int weaponArmor, float weaponSpeed, int critical, int magicAttack, int magicAccuracy, int magicCritical, String etc, WeaponKind weaponKind) {
         super(name, level, value, jobList);
+        this.id = id;
         this.attack = attack;
         this.accuracy = accuracy;
         this.weaponArmor = weaponArmor;
@@ -46,6 +45,6 @@ public class Weapon extends Item {
         this.magicAccuracy = magicAccuracy;
         this.magicCritical = magicCritical;
         this.etc = etc;
-        this.value = value1;
+        this.weaponKind = weaponKind;
     }
 }

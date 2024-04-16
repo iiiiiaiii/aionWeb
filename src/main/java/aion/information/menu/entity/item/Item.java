@@ -10,6 +10,7 @@ import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -19,13 +20,13 @@ public abstract class Item extends BaseEntity {
     private int level;
     private Value value;
     @Enumerated(EnumType.STRING)
-    private List<Job> jobList;
+    private List<Job> jobs = new ArrayList<>();
 
 
     public Item(String name, int level, Value value, List<Job> jobList) {
         this.name = name;
         this.level = level;
         this.value = value;
-        this.jobList = jobList;
+        this.jobs.addAll(jobList);
     }
 }

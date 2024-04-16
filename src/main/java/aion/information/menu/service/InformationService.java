@@ -27,7 +27,7 @@ public class InformationService {
     public void update(Information information, InformationForm informationForm) {
         String name = information.getName();
         String content = information.getContent();
-        informationRepository.setInfo(information.getId(),name,content);
+        informationRepository.updateInfo(information.getId(),name,content);
     }
 
     public void research() {

@@ -21,14 +21,12 @@ public class Armor extends Item {
     private int avoid;
 
     private String etc;
-    private Value value;
 
-    public Armor(String name, int level, Value value, List<Job> jobList, int defense, int magicResist, int avoid, String etc, Value value1) {
+    public Armor(String name, int level, Value value, List<Job> jobList, int defense, int magicResist, int avoid, String etc) {
         super(name, level, value, jobList);
         this.defense = defense;
         this.magicResist = magicResist;
         this.avoid = avoid;
         this.etc = etc;
-        this.value = value1;
     }
 }

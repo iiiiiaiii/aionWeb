@@ -8,14 +8,16 @@ import java.util.List;
 @Getter
 
 public class SkillForm extends InformationForm{
+
+    private int level;
     private int coolTime;
-    private String etc;
     private Job job;
 
-    public SkillForm(String name, String context, int coolTime, String etc, Job job) {
+    public SkillForm(String name, String context, int level, int coolTime, Job job) {
+
         super(name, context);
+        this.level = level;
         this.coolTime = coolTime;
-        this.etc = etc;
         this.job = job;
     }
 }

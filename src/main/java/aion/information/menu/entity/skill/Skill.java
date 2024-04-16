@@ -15,13 +15,17 @@ public class Skill extends BaseEntity {
     @GeneratedValue
     private Long id;
 
+    private String name;
+    private int level;
     private int coolTime;
-    private String etc;
+    private String content;
     private Job job;
 
-    public Skill(int coolTime, String etc, Job job) {
+    public Skill(String name, int level, int coolTime, String content, Job job) {
+        this.name = name;
+        this.level = level;
         this.coolTime = coolTime;
-        this.etc = etc;
+        this.content = content;
         this.job = job;
     }
 }

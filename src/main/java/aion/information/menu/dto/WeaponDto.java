@@ -1,5 +1,8 @@
 package aion.information.menu.dto;
 
+import lombok.Data;
+
+@Data
 public class WeaponDto {
 
     private String name;
@@ -7,18 +10,18 @@ public class WeaponDto {
     private String attack;
     private int accuracy;
     private int weaponArmor;
-    private float weaponSpeed;
+    private double weaponSpeed;
     private int critical;
-
     private int magicAttack;
     private int magicAccuracy;
-
     private int magicCritical;
-
     private String etc;
 
+    protected WeaponDto() {
 
-    public WeaponDto(String name, int level, String attack, int accuracy, int weaponArmor, float weaponSpeed, int critical, int magicAttack, int magicAccuracy, int magicCritical, String etc) {
+    }
+
+    public WeaponDto(String name, int level, String attack, int accuracy, int weaponArmor, double weaponSpeed, int critical, int magicAttack, int magicAccuracy, int magicCritical, String etc) {
         this.name = name;
         this.level = level;
         this.attack = attack;

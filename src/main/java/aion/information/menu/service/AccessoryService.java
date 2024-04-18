@@ -53,4 +53,8 @@ public class AccessoryService {
     public List<AccessoryDto> findAllByDto() {
         return accessoryRepository.findAllByDto();
     }
+
+    public List<AccessoryDto> findKindDto(AccessoryKind accessoryKind) {
+        return accessoryRepository.findKindDto(accessoryKind);
+    }
 }

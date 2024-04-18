@@ -16,6 +16,10 @@ public class Information extends BaseEntityPlus {
     private String name;
     private String content;
 
+    protected Information() {
+
+    }
+
     public Information(String name, String content) {
         this.name = name;
         this.content = content;

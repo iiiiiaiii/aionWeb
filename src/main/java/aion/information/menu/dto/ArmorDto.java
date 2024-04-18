@@ -1,5 +1,8 @@
 package aion.information.menu.dto;
 
+import lombok.Data;
+
+@Data
 public class ArmorDto {
     private String name;
     private int level;

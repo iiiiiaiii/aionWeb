@@ -17,13 +17,13 @@ public interface ArmorRepository extends JpaRepository<Armor, Long> {
     @Query("update Armor a set " +
             "a.name = :newName, " +
             "a.level = :newLevel, " +
+            "a.value = :newValue, " +
+            "a.jobs = :newJobs, " +
             "a.defense = :newDefense, " +
             "a.magicResist = :newMagicResist, " +
             "a.avoid = :newAvoid, " +
             "a.etc = :newEtc, " +
-            "a.value = :newValue, " +
-            "a.armorKind = :newArmorKind" +
-            "a.jobs = :newJobs " +
+            "a.armorKind = :newArmorKind " +
             "where a.id = :id")
     void updateArmor(@Param("id") Long id,
                      @Param("newName") String newName,
@@ -40,4 +40,10 @@ public interface ArmorRepository extends JpaRepository<Armor, Long> {
             " from Armor a" +
             " order by a.armorKind, a.level, a.name")
     List<ArmorDto> findAllByDto();
+
+    @Query("select new aion.information.menu.dto.ArmorDto(a.name, a.level, a.defense, a.magicResist, a.avoid, a.etc)" +
+            " from Armor a" +
+            " where a.armorKind = :searchKind" +
+            " order by a.level, a.name")
+    List<ArmorDto> findKindDto(ArmorKind searchKind);
 }

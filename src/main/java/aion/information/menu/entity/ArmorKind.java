@@ -1,10 +1,9 @@
 package aion.information.menu.entity;
 
 public enum ArmorKind {
-    상의,
-    하의,
-    견갑,
-    장갑,
-    신발
+    판금,
+    사슬,
+    가죽,
+    로브
 
 }

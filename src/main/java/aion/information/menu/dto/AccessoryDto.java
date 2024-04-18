@@ -5,18 +5,18 @@ import lombok.Getter;
 @Getter
 public class AccessoryDto {
     private String name;
-    private String level;
+    private int level;
     private int magicResists;
     private String etc;
-    private String value;
-    private String kind;
 
-    public AccessoryDto(String name, String level, int magicResists, String etc, String value, String kind) {
+    protected AccessoryDto() {
+
+    }
+
+    public AccessoryDto(String name, int level, int magicResists, String etc) {
         this.name = name;
         this.level = level;
         this.magicResists = magicResists;
         this.etc = etc;
-        this.value = value;
-        this.kind = kind;
     }
 }

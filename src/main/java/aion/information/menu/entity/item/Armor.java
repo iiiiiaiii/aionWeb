@@ -21,11 +21,12 @@ public class Armor extends Item {
     private int magicResist;
     private int avoid;
     private String etc;
+
+    @Enumerated(EnumType.STRING)
     private ArmorKind armorKind;
 
-    public Armor(String name, int level, Value value, List<Job> jobList, Long id, int defense, int magicResist, int avoid, String etc, ArmorKind armorKind) {
+    public Armor(String name, int level, Value value, List<Job> jobList, int defense, int magicResist, int avoid, String etc, ArmorKind armorKind) {
         super(name, level, value, jobList);
-        this.id = id;
         this.defense = defense;
         this.magicResist = magicResist;
         this.avoid = avoid;

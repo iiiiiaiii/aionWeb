@@ -47,4 +47,8 @@ public class SkillService {
     public List<SkillDto> findAllByDto() {
         return skillRepository.findAllByDto();
     }
+
+    public List<SkillDto> findJobDto(Job job) {
+        return skillRepository.findJobDto(job);
+    }
 }

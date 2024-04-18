@@ -20,8 +20,6 @@ public interface WeaponRepository extends JpaRepository<Weapon,Long> {
             "w.attack = :newAttack, " +
             "w.accuracy = :newAccuracy, " +
             "w.weaponArmor = :newWeaponArmor, " +
-            "w.weaponSpeed = :newWeaponSpeed, " +
-            "w.critical = :newCritical, "+
             "w.magicAttack = :newMagicAttack, " +
             "w.magicAccuracy = :newMagicAccuracy, " +
             "w.magicCritical = :newMagicCritical, " +
@@ -36,8 +34,6 @@ public interface WeaponRepository extends JpaRepository<Weapon,Long> {
                       @Param("newAttack") String newAttack,
                       @Param("newAccuracy") int newAccuracy,
                       @Param("newWeaponArmor") int newWeaponArmor,
-                      @Param("newWeaponSpeed") float newWeaponSpeed,
-                      @Param("newCritical") int newCritical,
                       @Param("newMagicAttack") int newMagicAttack,
                       @Param("newMagicAccuracy") int newMagicAccuracy,
                       @Param("newMagicCritical") int newMagicCritical,
@@ -46,8 +42,14 @@ public interface WeaponRepository extends JpaRepository<Weapon,Long> {
                       @Param("newWeaponKind") WeaponKind newWeaponKind,
                       @Param("newJobs") List<Job> newJobs);
 
-    @Query("select new aion.information.menu.dto.WeaponDto(w.name, w.level, w.attack, w.accuracy, w.weaponArmor, w.weaponSpeed, w.critical, w.magicAttack, w.magicAccuracy, w.magicCritical, w.etc)" +
+    @Query("select new aion.information.menu.dto.WeaponDto(w.name, w.level, w.attack, w.accuracy, w.weaponArmor, w.weaponBaseStat.weaponSpeed, w.weaponBaseStat.critical, w.magicAttack, w.magicAccuracy, w.magicCritical, w.etc)" +
             " from Weapon w" +
             " order by w.weaponKind, w.level, w.name")
     List<WeaponDto> findAllByDto();
+
+    @Query("select new aion.information.menu.dto.WeaponDto(w.name, w.level, w.attack, w.accuracy, w.weaponArmor, w.weaponBaseStat.weaponSpeed, w.weaponBaseStat.critical, w.magicAttack, w.magicAccuracy, w.magicCritical, w.etc)" +
+            " from Weapon w" +
+            " where w.weaponKind = :searchKind" +
+            " order by w.level, w.name")
+    List<WeaponDto> findKindDto(WeaponKind searchKind);
 }

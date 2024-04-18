@@ -1,12 +1,17 @@
 package aion.information.menu.dto;
 
+import lombok.Data;
+
+@Data
+
 public class InformationDto {
 
     private String name;
-    private String Content;
+    private String content;
+
 
     public InformationDto(String name, String content) {
         this.name = name;
-        Content = content;
+        this.content = content;
     }
 }

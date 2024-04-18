@@ -32,4 +32,11 @@ public interface SkillRepository extends JpaRepository<Skill, Long> {
             " from Skill s" +
             " order by s.job, s.level")
     List<SkillDto> findAllByDto();
+
+
+    @Query("select new aion.information.menu.dto.SkillDto(s.name, s.level, s.coolTime, s.content)" +
+            " from Skill s" +
+            " where s.job = :searchJob" +
+            " order by s.job, s.level")
+    List<SkillDto> findJobDto(Job searchJob);
 }

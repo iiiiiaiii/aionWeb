@@ -207,9 +207,20 @@
     </div>
 </div>
 <main class="container">
-    <h1 class="display-4 fst-italic">용어사전</h1>
-
-    <!-- 각 정보를 반복해서 출력 -->
+    <div class="nav-scroller py-1 mb-3 border-bottom">
+        <nav class="nav nav-underline justify-content-between">
+            <a class="nav-item nav-link link-body-emphasis active" href="/skill/검성">검성</a>
+            <a class="nav-item nav-link link-body-emphasis active" href="/skill/수호성">수호성</a>
+            <a class="nav-item nav-link link-body-emphasis active" href="/skill/살성">살성</a>
+            <a class="nav-item nav-link link-body-emphasis active" href="/skill/궁성">궁성</a>
+            <a class="nav-item nav-link link-body-emphasis active" href="/skill/호법성">호법성</a>
+            <a class="nav-item nav-link link-body-emphasis active" href="/skill/치유성">치유성</a>
+            <a class="nav-item nav-link link-body-emphasis active" href="/skill/정령성">정령성</a>
+            <a class="nav-item nav-link link-body-emphasis active" href="/skill/마도성">마도성</a>
+            <a class="nav-item nav-link link-body-emphasis active" href="/skill/집행자">집행자</a>
+            <a class="nav-item nav-link link-body-emphasis active" href="/skill/권성">권성</a>
+        </nav>
+    </div>
     <div class="row">
         <div class="col-lg-6">
             <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary">
@@ -219,6 +230,8 @@
                             <div class="row align-items-center">
                                 <div class="col-lg-10">
                                     <h2 th:text="${info.name}"></h2>
+                                    <p th:unless="${info.level == 0}">Level: <span th:text="${info.level}"></span></p>
+                                    <p th:unless="${info.attack == 0}">쿨타임: <span th:text="${info.coolTime}"></span></p>
                                 </div>
                                 <div class="col-lg-20" style="font-size: 20px;">
                                     <p th:text="${info.content}"></p>
@@ -232,7 +245,6 @@
         </div>
     </div>
 </main>
-
 <footer class="py-5 text-center text-body-secondary bg-body-tertiary">
     <p class="mb-0">
         <a href="#">Made By Hyeon</a>

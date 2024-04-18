@@ -36,13 +36,13 @@
           -moz-user-select: none;
           user-select: none;
         }
-
+    
         @media (min-width: 768px) {
           .bd-placeholder-img-lg {
             font-size: 3.5rem;
           }
         }
-
+    
         .b-example-divider {
           width: 100%;
           height: 3rem;
@@ -51,25 +51,25 @@
           border-width: 1px 0;
           box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
         }
-
+    
         .b-example-vr {
           flex-shrink: 0;
           width: 1.5rem;
           height: 100vh;
         }
-
+    
         .bi {
           vertical-align: -.125em;
           fill: currentColor;
         }
-
+    
         .nav-scroller {
           position: relative;
           z-index: 2;
           height: 2.75rem;
           overflow-y: hidden;
         }
-
+    
         .nav-scroller .nav {
           display: flex;
           flex-wrap: nowrap;
@@ -80,11 +80,11 @@
           white-space: nowrap;
           -webkit-overflow-scrolling: touch;
         }
-
+    
         .btn-bd-primary {
           --bd-violet-bg: #712cf9;
           --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
-
+    
           --bs-btn-font-weight: 600;
           --bs-btn-color: var(--bs-white);
           --bs-btn-bg: var(--bd-violet-bg);
@@ -97,11 +97,11 @@
           --bs-btn-active-bg: #5a23c8;
           --bs-btn-active-border-color: #5a23c8;
         }
-
+    
         .bd-mode-toggle {
           z-index: 1500;
         }
-
+    
         .bd-mode-toggle .dropdown-menu .active .bi {
           display: block !important;
         }
@@ -207,9 +207,15 @@
     </div>
 </div>
 <main class="container">
-    <h1 class="display-4 fst-italic">용어사전</h1>
-
-    <!-- 각 정보를 반복해서 출력 -->
+    <div class="nav-scroller py-1 mb-3 border-bottom">
+        <nav class="nav nav-underline justify-content-between">
+            <a class="nav-item nav-link link-body-emphasis active" href="/accessory/투구">투구</a>
+            <a class="nav-item nav-link link-body-emphasis active" href="/accessory/목걸이">목걸이</a>
+            <a class="nav-item nav-link link-body-emphasis active" href="/accessory/귀고리">귀고리</a>
+            <a class="nav-item nav-link link-body-emphasis active" href="/accessory/반지">반지</a>
+            <a class="nav-item nav-link link-body-emphasis active" href="/accessory/허리띠">허리띠</a>
+        </nav>
+    </div>
     <div class="row">
         <div class="col-lg-6">
             <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary">
@@ -219,9 +225,11 @@
                             <div class="row align-items-center">
                                 <div class="col-lg-10">
                                     <h2 th:text="${info.name}"></h2>
+                                    <p th:unless="${info.level == 0}">Level: <span th:text="${info.level}"></span></p>
+                                    <p th:unless="${info.magicResists == 0}">마법 저항력: <span th:text="${info.magicCritical}"></span></p>
                                 </div>
                                 <div class="col-lg-20" style="font-size: 20px;">
-                                    <p th:text="${info.content}"></p>
+                                    <p th:text="${info.etc}"></p>
                                 </div>
                             </div>
                             <hr style="border-top: 4px solid black;">
@@ -232,7 +240,6 @@
         </div>
     </div>
 </main>
-
 <footer class="py-5 text-center text-body-secondary bg-body-tertiary">
     <p class="mb-0">
         <a href="#">Made By Hyeon</a>

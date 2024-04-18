@@ -53,4 +53,8 @@ public class ArmorService {
         return armorRepository.findAllByDto();
     }
 
+    public List<ArmorDto> findKindDto(ArmorKind armorKind) {
+        return armorRepository.findKindDto(armorKind);
+    }
+
 }

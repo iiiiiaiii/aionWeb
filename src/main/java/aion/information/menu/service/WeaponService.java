@@ -3,6 +3,7 @@ package aion.information.menu.service;
 import aion.information.menu.controller.form.AccessoryForm;
 import aion.information.menu.controller.form.ArmorForm;
 import aion.information.menu.controller.form.WeaponForm;
+import aion.information.menu.dto.WeaponDto;
 import aion.information.menu.entity.Job;
 import aion.information.menu.entity.Value;
 import aion.information.menu.entity.WeaponKind;
@@ -42,8 +43,6 @@ public class WeaponService {
         String attack = weaponForm.getAttack();
         int accuracy = weaponForm.getAccuracy();
         int weaponArmor = weaponForm.getWeaponArmor();
-        float weaponSpeed = weaponForm.getWeaponSpeed();
-        int critical = weaponForm.getCritical();
         int magicAttack = weaponForm.getMagicAttack();
         int magicAccuracy = weaponForm.getMagicAccuracy();
         int magicCritical = weaponForm.getMagicCritical();
@@ -51,6 +50,14 @@ public class WeaponService {
         WeaponKind weaponKind = weaponForm.getWeaponKind();
         Value value = weaponForm.getValue();
         List<Job> jobList = weaponForm.getJobList();
-        weaponRepository.updateWeapon(id, name, level, attack, accuracy, weaponArmor, weaponSpeed, critical, magicAttack, magicAccuracy, magicCritical, etc,value,weaponKind, jobList);
+        weaponRepository.updateWeapon(id, name, level, attack, accuracy, weaponArmor, magicAttack, magicAccuracy, magicCritical, etc,value,weaponKind, jobList);
+    }
+
+    public List<WeaponDto> findAllByDto() {
+        return weaponRepository.findAllByDto();
+    }
+
+    public List<WeaponDto> findKindDto(WeaponKind weaponKind) {
+        return weaponRepository.findKindDto(weaponKind);
     }
 }

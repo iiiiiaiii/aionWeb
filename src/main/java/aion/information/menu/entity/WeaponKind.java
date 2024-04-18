@@ -11,6 +11,5 @@ public enum WeaponKind {
     보주,
     마법서,
     사슬검,
-    장갑,
-    방패
+    용아,
 }

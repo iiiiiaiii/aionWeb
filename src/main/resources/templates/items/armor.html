@@ -207,9 +207,14 @@
     </div>
 </div>
 <main class="container">
-    <h1 class="display-4 fst-italic">용어사전</h1>
-
-    <!-- 각 정보를 반복해서 출력 -->
+    <div class="nav-scroller py-1 mb-3 border-bottom">
+        <nav class="nav nav-underline justify-content-between">
+            <a class="nav-item nav-link link-body-emphasis active" href="/armor/판금">판금</a>
+            <a class="nav-item nav-link link-body-emphasis active" href="/armor/사슬">사슬</a>
+            <a class="nav-item nav-link link-body-emphasis active" href="/armor/가죽">가죽</a>
+            <a class="nav-item nav-link link-body-emphasis active" href="/armor/로브">로브</a>
+        </nav>
+    </div>
     <div class="row">
         <div class="col-lg-6">
             <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary">
@@ -219,9 +224,13 @@
                             <div class="row align-items-center">
                                 <div class="col-lg-10">
                                     <h2 th:text="${info.name}"></h2>
+                                    <p th:unless="${info.level == 0}">Level: <span th:text="${info.level}"></span></p>
+                                    <p th:unless="${info.attack == 0}">물리 방어력: <span th:text="${info.defense}"></span></p>
+                                    <p th:unless="${info.accuracy == 0}">마법 저항력: <span th:text="${info.magicResist}"></span></p>
+                                    <p th:unless="${info.weaponArmor == 0}">회피: <span th:text="${info.avoid}"></span></p>
                                 </div>
                                 <div class="col-lg-20" style="font-size: 20px;">
-                                    <p th:text="${info.content}"></p>
+                                    <p th:text="${info.etc}"></p>
                                 </div>
                             </div>
                             <hr style="border-top: 4px solid black;">
@@ -232,7 +241,6 @@
         </div>
     </div>
 </main>
-
 <footer class="py-5 text-center text-body-secondary bg-body-tertiary">
     <p class="mb-0">
         <a href="#">Made By Hyeon</a>
